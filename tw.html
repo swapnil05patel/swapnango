@@ -127,6 +127,43 @@
             display: flex;
             justify-content: space-between;
         }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                padding: 10px;
+                border-right: none;
+            }
+            .content {
+                margin-left: 0;
+                padding: 15px;
+            }
+            .navbar .container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            .tweet-box textarea {
+                font-size: 1rem;
+            }
+            .tweet .tweet-content {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar .navbar-brand {
+                font-size: 1.2rem;
+            }
+            .sidebar {
+                width: 100%;
+                display: none;
+            }
+            .tweet-box {
+                padding: 15px;
+            }
+        }
     </style>
 </head>
 <body>
