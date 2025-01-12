@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation and Fundraising Platform</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            
+            background: linear-gradient(135deg, rgba(0, 102, 204, 0.7), rgba(255, 99, 71, 0.7)),
+            url('https://source.unsplash.com/1600x900/?business,technology') no-repeat center center/cover;
+            font-family: 'Roboto', sans-serif;
+        }
+    
+        /* Navbar Styling */
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    
+        .navbar .nav-link {
+            color: #333;
+            transition: color 0.3s;
+        }
+    
+        .navbar .nav-link:hover {
+            color: #007bff;
+        }
+    
+        .btn-donate {
+            background-color: #ff6f61;
+            color: white;
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-weight: 500;
+        }
+    
+        .btn-donate:hover {
+            background-color: #e55d50;
+        }
+    
+        /* Hero Section */
+        header {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
+                url('https://source.unsplash.com/1600x900/?charity,donation') no-repeat center center/cover;
+            color: white;
+            padding: 100px 0;
+        }
+    
+        header h1,
+        header p {
+            background-color: rgba(0, 0, 0, 0.6);
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+    
+        header .btn {
+            background-color: #ffc107;
+            color: #333;
+            font-weight: 500;
+            border-radius: 30px;
+        }
+    
+        header .btn:hover {
+            background-color: #e0a800;
+        }
+    
+        /* Testimonials Section */
+        .testimonials {
+            background-color: #f1f7ff;
+            padding: 50px 0;
+            border-top: 2px solid #007bff;
+        }
+    
+        .testimonial {
+            text-align: center;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    
+        .testimonial img {
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+        }
+    
+        .testimonial p {
+            font-style: italic;
+            color: #555;
+        }
+    
+        /* Newsletter Section */
+        .newsletter {
+            background: linear-gradient(to right, #ff6f61, #ff9671);
+            color: white;
+            padding: 50px 0;
+        }
+    
+        .newsletter input {
+            border-radius: 30px;
+            padding: 10px 20px;
+        }
+    
+        .newsletter button {
+            border-radius: 30px;
+            padding: 10px 20px;
+            background-color: #343a40;
+            color: white;
+            font-weight: 500;
+        }
+    
+        .newsletter button:hover {
+            background-color: #212529;
+        }
+    
+        /* Footer */
+        footer {
+            background: linear-gradient(to top, #212529, #343a40);
+            color: white;
+            padding: 30px 0;
+        }
+    
+        footer .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.2rem;
+        }
+    
+        footer .social-icons a:hover {
+            color: #007bff;
+        }
+        
+        .card img {
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.card img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+    </style>
+    
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://raw.githubusercontent.com/swapnil05patel/donation-platform/main/logo.png" alt="logo" class="rounded-circle" style="width: 50px;">
+                <span class="ms-2">Donation Platform</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="text-center bg-primary">
+        <div class="container">
+            <h1 class="display-4">Make a Difference Today</h1>
+            <h1 class="display-4">Support campaigns for education, healthcare, and disaster relief</h1>
+            <a href="signin.html" class="btn btn-warning">Sign In</a>
+            <a href="about.html" class="btn btn-outline-light ms-3">Learn More</a>
+        </div>
+    </header>
+
+  <!-- Campaign Highlights -->
+<section class="py-5">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <a href="education.html">
+                        <img src="https://raw.githubusercontent.com/swapnil05patel/donation-platform/main/childeducation.png" class="card-img-top" alt="Education">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="education.html">Education</a></h5>
+                        <p class="card-text">Support quality education programs for underprivileged children.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <a href="healthcare.html">
+                        <img src="https://raw.githubusercontent.com/swapnil05patel/donation-platform/main/healthcare.png" class="card-img-top" alt="Healthcare">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="healthcare.html">Healthcare</a></h5>
+                        <p class="card-text">Provide medical aid and health facilities to those in need.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <a href="disaster-relief.html">
+                        <img src="https://raw.githubusercontent.com/swapnil05patel/donation-platform/main/disaster.png" class="card-img-top" alt="Disaster Relief">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="disaster-relief.html">Disaster Relief</a></h5>
+                        <p class="card-text">Help rebuild lives affected by natural calamities.</p>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="text-center mb-5">What People Say</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="testimonial">
+                        <p>"This platform has made it so easy to support meaningful causes. Highly recommend!"</p>
+                        <strong>- John Doe</strong>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial">
+                        <p>"I love how transparent and effective the campaigns are. Great job!"</p>
+                        <strong>- Jane Smith</strong>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial">
+                        <p>"Every contribution feels impactful. I'm proud to be a donor here."</p>
+                        <strong>- Michael Brown</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter text-center">
+        <div class="container">
+            <h2>Stay Updated</h2>
+            <p>Subscribe to our newsletter to receive the latest updates on our campaigns.</p>
+            <form class="d-flex justify-content-center" onsubmit="handleSubscription(event)">
+                <input id="email" type="email" class="form-control me-2" placeholder="Enter your email" style="max-width: 300px;" required>
+                <button type="submit" class="btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+    
+    <script>
+        function handleSubscription(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const username = email.split('@')[0]; // Extract username from email
+            const url = `campaigns.html?username=${username}`;
+            window.location.href = url; // Redirect to campaigns page with username as a query parameter
+        }
+    </script>
+    
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2025 Donation Platform. All Rights Reserved.</p>
+            <div class="social-icons">
+                <a href="fb.html"><i class="fab fa-facebook-f"></i></a>
+                <a href="tw.html"><i class="fab fa-twitter"></i></a>
+                <a href="ig.html"><i class="fab fa-instagram"></i></a>
+                <a href="ld.html"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

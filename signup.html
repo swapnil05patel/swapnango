@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            /* Background Gradient */
+            background: linear-gradient(135deg, rgba(0, 102, 204, 0.7), rgba(255, 99, 71, 0.7)),
+                        url('https://source.unsplash.com/1600x900/?business,technology') no-repeat center center/cover;
+            font-family: 'Roboto', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            margin: 0 15px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-control {
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-radius: 25px;
+            padding: 12px 24px;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .modal-content {
+            border-radius: 15px;
+        }
+
+        .modal-header {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .modal-body {
+            font-size: 1.1rem;
+        }
+
+        .modal-footer button {
+            border-radius: 20px;
+        }
+
+        .form-group label {
+            font-weight: 500;
+        }
+        
+        .form-group input {
+            font-size: 1rem;
+        }
+
+        /* Responsive Font Size */
+        @media (max-width: 767px) {
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .form-control {
+                font-size: 0.9rem;
+            }
+
+            .btn-primary {
+                padding: 10px 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .btn-primary {
+                padding: 10px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Create Your Account</h2>
+        <form id="signupForm" action="store-to-file.php" method="post">
+            <!-- Full Name -->
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" class="form-control" id="fullName" name="fullName" required>
+            </div>
+            <!-- Email Address -->
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <!-- Phone Number -->
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" class="form-control" id="phone" name="phone" required>
+            </div>
+            <!-- Password -->
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <!-- Confirm Password -->
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+            </div>
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary mx-auto d-block">Sign Up</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap Modal -->
+    <div class="modal fade" id="signupSuccessModal" tabindex="-1" role="dialog" aria-labelledby="signupSuccessModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="signupSuccessModalLabel">Sign Up Successful</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Your account has been created successfully.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="signInRedirect">Go to Sign In</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script>
+        // Show the success modal after form submission
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault();  // Prevent form from submitting normally
+            $('#signupSuccessModal').modal('show');  // Show the modal
+        });
+
+        // Redirect to the sign-in page when "Go to Sign In" button is clicked
+        document.getElementById('signInRedirect').addEventListener('click', function() {
+            window.location.href = 'signin.html';  // Redirect to the sign-in page
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make a Donation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, rgba(0, 102, 204, 0.7), rgba(255, 99, 71, 0.7)),
+            url('https://source.unsplash.com/1600x900/?business,technology') no-repeat center center/cover;
+            font-family: 'Roboto', sans-serif;
+        }   
+        .form-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Donation Form -->
+    <div class="form-container">
+        <h2 class="text-center mb-4">Make a Donation</h2>
+        <form id="donationForm">
+            <div class="mb-3">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your full name" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number" required>
+            </div>
+            <div class="mb-3">
+                <label for="amount" class="form-label">Donation Amount ($)</label>
+                <input type="number" class="form-control" id="amount" placeholder="Enter donation amount" required>
+            </div>
+            <div class="mb-3">
+                <label for="campaign" class="form-label">Purpose</label>
+                <select class="form-select" id="campaign" required>
+                    <option value="">Purpose</option>
+                    <option value="education">Education</option>
+                    <option value="healthcare">Healthcare</option>
+                    <option value="disaster">Disaster Relief</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="NGO" class="form-label">Select NGOs</label>
+                <select class="form-select" id="NGO" required>
+                    <option value="">Choose NGO</option>
+                    <option value="Hope Foundation">Hope Foundation</option>
+                    <option value="Care for All">Care for All</option>
+                    <option value="Bright Future Trust">Bright Future Trust</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="payment" class="form-label">Payment Method</label>
+                <select class="form-select" id="payment" required>
+                    <option value="">Select Payment Method</option>
+                    <option value="credit_card">Credit Card</option>
+                    <option value="debit_card">Debit Card</option>
+                    <option value="paypal">PayPal</option>
+                </select>
+            </div>
+
+            <!-- Dynamic Payment Fields -->
+            <div id="paymentDetails" style="display: none;">
+                <div id="creditCardFields" style="display: none;">
+                    <div class="mb-3">
+                        <label for="ccNumber" class="form-label">Credit Card Number</label>
+                        <input type="text" class="form-control" id="ccNumber" placeholder="Enter your credit card number">
+                    </div>
+                    <div class="mb-3">
+                        <label for="ccExpiry" class="form-label">Expiration Date</label>
+                        <input type="month" class="form-control" id="ccExpiry">
+                    </div>
+                    <div class="mb-3">
+                        <label for="ccCVV" class="form-label">CVV</label>
+                        <input type="text" class="form-control" id="ccCVV" placeholder="Enter CVV">
+                    </div>
+                </div>
+                <div id="debitCardFields" style="display: none;">
+                    <div class="mb-3">
+                        <label for="dcNumber" class="form-label">Debit Card Number</label>
+                        <input type="text" class="form-control" id="dcNumber" placeholder="Enter your debit card number">
+                    </div>
+                    <div class="mb-3">
+                        <label for="dcExpiry" class="form-label">Expiration Date</label>
+                        <input type="month" class="form-control" id="dcExpiry">
+                    </div>
+                    <div class="mb-3">
+                        <label for="dcCVV" class="form-label">CVV</label>
+                        <input type="text" class="form-control" id="dcCVV" placeholder="Enter CVV">
+                    </div>
+                </div>
+                <div id="paypalFields" style="display: none;">
+                    <div class="mb-3">
+                        <label for="paypalEmail" class="form-label">PayPal Email</label>
+                        <input type="email" class="form-control" id="paypalEmail" placeholder="Enter your PayPal email">
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Donate Now</button>
+        </form>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript to Handle Form Submission and Payment Fields -->
+    <script>
+        document.getElementById('payment').addEventListener('change', function() {
+            const paymentMethod = this.value;
+            document.getElementById('paymentDetails').style.display = 'block';
+            document.getElementById('creditCardFields').style.display = paymentMethod === 'credit_card' ? 'block' : 'none';
+            document.getElementById('debitCardFields').style.display = paymentMethod === 'debit_card' ? 'block' : 'none';
+            document.getElementById('paypalFields').style.display = paymentMethod === 'paypal' ? 'block' : 'none';
+        });
+
+        document.getElementById('donationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const amount = document.getElementById('amount').value;
+            const campaign = document.getElementById('campaign').value;
+            const payment = document.getElementById('payment').value;
+
+            // Validate form fields
+            if (!name || !email || !phone || !amount || !campaign || !payment) {
+                alert('Please fill out all the fields!');
+                return;
+            }
+
+            // Display confirmation message
+            alert(`Thank you, ${name}! Your donation of $${amount} for the "${campaign}" campaign has been successfully received.`);
+
+            // Optionally redirect to a thank-you page
+            window.location.href = 'thank-you.html';
+        });
+    </script>
+</body>
+</html>

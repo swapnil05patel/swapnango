@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campaigns - Donation and Fundraising Platform</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .nav-link {
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        .navbar .nav-link:hover {
+            color: #007bff;
+        }
+
+        /* Campaign Section */
+        .campaign-section {
+            padding: 50px 0;
+        }
+
+        .campaign-card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .campaign-card img {
+            border-radius: 10px;
+            max-height: 250px;
+            object-fit: cover;
+            
+        }
+
+        .campaign-card-body {
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(0, 102, 204, 0.7), rgba(255, 99, 71, 0.7)),
+            url('https://source.unsplash.com/1600x900/?business,technology') no-repeat center center/cover;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .campaign-card-title {
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .campaign-card-text {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        .header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://raw.githubusercontent.com/swapnil05patel/donation-platform/main/logo.png" alt="logo" class="rounded-circle" style="width: 50px;">
+                <span class="ms-2">Donation Platform</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="header">
+        <h1>Welcome, <span id="username"></span>!</h1>
+        <p>Discover our impactful NGO campaigns and make a difference.</p>
+    </div>
+<!-- Campaign Descriptions -->
+<section class="campaign-section bg-light">
+
+        <!-- Education Campaign -->
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card campaign-card">
+                    <div class="card-body campaign-card-body">
+                        <h5 class="card-title campaign-card-title">Education for Underprivileged Children</h5>
+                        <p class="card-text campaign-card-text">This campaign focuses on providing quality education and necessary learning materials to children from underprivileged backgrounds. Through your generous donations, we aim to provide scholarships, books, and school supplies to those who lack the resources to pursue their education.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Healthcare Campaign -->
+            <div class="col-md-4">
+                <div class="card campaign-card">
+                    <div class="card-body campaign-card-body">
+                        <h5 class="card-title campaign-card-title">Healthcare for the Needy</h5>
+                        <p class="card-text campaign-card-text">Support our mission to provide medical aid and essential healthcare services to those in need. Whether it's emergency medical supplies, treatment for chronic conditions, or preventive healthcare, your contribution helps save lives.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disaster Relief Campaign -->
+            <div class="col-md-4">
+                <div class="card campaign-card">
+                    <div class="card-body campaign-card-body">
+                        <h5 class="card-title campaign-card-title">Disaster Relief for Affected Families</h5>
+                        <p class="card-text campaign-card-text">Natural disasters leave countless families in need of immediate assistance. This campaign raises funds to provide emergency relief such as food, water, shelter, and medical supplies to victims of earthquakes, floods, and other calamities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Campaigns -->
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card campaign-card">
+                    <div class="card-body campaign-card-body">
+                        <h5 class="card-title campaign-card-title">Clean Water for Rural Communities</h5>
+                        <p class="card-text campaign-card-text">Join us in bringing access to clean drinking water to remote and rural areas. Your donation helps fund the construction of wells, water filtration systems, and the distribution of safe drinking water in underserved regions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hunger Relief Campaign -->
+            <div class="col-md-4">
+                <div class="card campaign-card">
+                    <div class="card-body campaign-card-body">
+                        <h5 class="card-title campaign-card-title">Hunger Relief for Families</h5>
+                        <p class="card-text campaign-card-text">Support families in need by providing food essentials. Your contribution helps fund food distribution programs that provide meals to vulnerable families, especially during times of economic hardship and crises.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Homeless Shelter Campaign -->
+            <div class="col-md-4">
+                <div class="card campaign-card">
+                    <div class="card-body campaign-card-body">
+                        <h5 class="card-title campaign-card-title">Shelter for the Homeless</h5>
+                        <p class="card-text campaign-card-text">Help provide safe shelter for homeless individuals and families. Donations go towards building temporary shelters, providing meals, and offering resources to help people transition out of homelessness.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Women's Empowerment Campaign -->
+            <div class="col-md-4">
+                <div class="card campaign-card">
+                    <div class="card-body campaign-card-body">
+                        <h5 class="card-title campaign-card-title">Empower Women, Empower Communities</h5>
+                        <p class="card-text campaign-card-text">Support programs that help women gain access to education, job training, and entrepreneurship opportunities. Your donation empowers women to break the cycle of poverty and create a brighter future for their families.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Environmental Conservation Campaign -->
+            <div class="col-md-4">
+                <div class="card campaign-card">
+                    <div class="card-body campaign-card-body">
+                        <h5 class="card-title campaign-card-title">Protect Our Planet: Environmental Conservation</h5>
+                        <p class="card-text campaign-card-text">Join the fight to conserve our planet's natural resources. Donations fund tree planting initiatives, wildlife preservation efforts, and projects aimed at reducing pollution and conserving ecosystems.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Refugee Assistance Campaign -->
+            <div class="col-md-4">
+                <div class="card campaign-card">
+                    <div class="card-body campaign-card-body">
+                        <h5 class="card-title campaign-card-title">Assistance for Refugees</h5>
+                        <p class="card-text campaign-card-text">Support refugees who have fled war and violence in search of safety. Your donation helps provide emergency shelter, food, clothing, and access to education and healthcare services for displaced individuals.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Donation Platform. All Rights Reserved.</p>
+    </footer>
+    <script>
+        // Extract username from the URL query parameter and display it
+        const queryParams = new URLSearchParams(window.location.search);
+        const username = queryParams.get('username');
+        document.getElementById('username').textContent = username || 'User';
+    </script>
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

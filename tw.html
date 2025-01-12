@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swapna Foundation - Twitter Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #e6ecf0;
+        }
+        .navbar {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e1e8ed;
+        }
+        .navbar .navbar-brand {
+            color: #1da1f2;
+            font-weight: bold;
+        }
+        .navbar .navbar-brand:hover {
+            color: #0a74da;
+        }
+        .navbar .nav-link {
+            color: #1da1f2;
+        }
+        .navbar .nav-link:hover {
+            color: #0a74da;
+        }
+        .sidebar {
+            background-color: #ffffff;
+            width: 250px;
+            height: 100vh;
+            border-right: 1px solid #e1e8ed;
+            padding: 20px;
+        }
+        .sidebar .sidebar-heading {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1da1f2;
+            margin-bottom: 20px;
+        }
+        .sidebar .nav-link {
+            font-size: 1.1rem;
+            color: #657786;
+            padding: 10px 0;
+        }
+        .sidebar .nav-link:hover {
+            color: #1da1f2;
+        }
+        .content {
+            margin-left: 270px;
+            padding: 30px;
+        }
+        .tweet-box {
+            background-color: #ffffff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .tweet-box textarea {
+            width: 100%;
+            border: none;
+            outline: none;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            padding: 10px;
+            border-radius: 8px;
+            resize: none;
+        }
+        .tweet-box .tweet-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+        .tweet-box .character-counter {
+            color: #657786;
+            font-size: 0.9rem;
+        }
+        .tweet-feed {
+            background-color: #ffffff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+        }
+        .tweet {
+            border-bottom: 1px solid #e1e8ed;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+        .tweet .user-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .tweet .user-info img {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+        .tweet .user-info .user-name {
+            font-weight: bold;
+            color: #1da1f2;
+        }
+        .tweet .user-info .user-handle {
+            font-size: 0.9rem;
+            color: #657786;
+        }
+        .tweet .tweet-content {
+            font-size: 1.2rem;
+            color: #14171a;
+        }
+        .tweet .tweet-actions i {
+            color: #657786;
+            cursor: pointer;
+        }
+        .tweet .tweet-actions i:hover {
+            color: #1da1f2;
+        }
+        .tweet .tweet-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">Swapna Foundation</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="index.html">Home</a>
+                <a class="nav-link" href="about.html">Explore</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container-fluid d-flex">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-heading">Menu</div>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">Explore</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Tweet Box -->
+            <div class="tweet-box">
+                <textarea id="tweetText" placeholder="What's happening?" maxlength="280"></textarea>
+                <div class="tweet-actions">
+                    <div>
+                        <i class="fas fa-image" onclick="toggleImageInput()"></i>
+                        <i class="fas fa-gif"></i>
+                        <i class="fas fa-poll"></i>
+                        <i class="fas fa-calendar"></i>
+                    </div>
+                    <div>
+                        <span id="charCount" class="character-counter">280 characters remaining</span>
+                        <button id="tweetButton" class="btn btn-primary" disabled>Tweet</button>
+                    </div>
+                </div>
+                <!-- Image Input (hidden initially) -->
+                <input type="file" id="imageInput" style="display: none;" accept="image/*">
+            </div>
+
+            <!-- Tweet Feed -->
+            <div class="tweet-feed">
+                <!-- Tweet 1 -->
+                <div class="tweet">
+                    <div class="user-info">
+                        <img src="https://raw.githubusercontent.com/swapnil05patel/donation-platform/main/logo.png" alt="logo" class="rounded-circle" style="width: auto;">
+                        <div>
+                            <div class="user-name">Swapna Foundation</div>
+                            <div class="user-handle">@SwapnaFdn</div>
+                        </div>
+                    </div>
+                    <div class="tweet-content">
+                        We're making a difference through education, healthcare, and disaster relief. Join us in our mission to help others!
+                    </div>
+                    <div class="tweet-actions">
+                        <div>
+                            <i class="fas fa-comment"></i>
+                            <i class="fas fa-retweet"></i>
+                            <i class="fas fa-heart"></i>
+                            <i class="fas fa-share"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tweet 2 -->
+                <div class="tweet">
+                    <div class="user-info">
+                        <img src="https://raw.githubusercontent.com/swapnil05patel/donation-platform/main/logo.png" alt="logo" class="rounded-circle" style="width: auto;">
+                        <div>
+                            <div class="user-name">Swapna Foundation</div>
+                            <div class="user-handle">@SwapnaFdn</div>
+                        </div>
+                    </div>
+                    <div class="tweet-content">
+                        Proud to announce that our healthcare program just reached 500 families in need!
+                    </div>
+                    <div class="tweet-actions">
+                        <div>
+                            <i class="fas fa-comment"></i>
+                            <i class="fas fa-retweet"></i>
+                            <i class="fas fa-heart"></i>
+                            <i class="fas fa-share"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add more tweets here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Update character counter
+        const tweetText = document.getElementById("tweetText");
+        const charCount = document.getElementById("charCount");
+        const tweetButton = document.getElementById("tweetButton");
+
+        tweetText.addEventListener("input", function () {
+            const remainingChars = 280 - tweetText.value.length;
+            charCount.textContent = `${remainingChars} characters remaining`;
+
+            // Enable tweet button if there is text
+            if (remainingChars >= 0 && tweetText.value.trim().length > 0) {
+                tweetButton.disabled = false;
+            } else {
+                tweetButton.disabled = true;
+            }
+        });
+
+        // Toggle image input visibility
+        function toggleImageInput() {
+            const imageInput = document.getElementById("imageInput");
+            imageInput.style.display = imageInput.style.display === "none" ? "block" : "none";
+        }
+
+        // Show modal on Tweet button click
+        tweetButton.addEventListener("click", function() {
+            const tweetText = document.getElementById("tweetText").value;
+            if(tweetText.trim()) {
+                const modal = new bootstrap.Modal(document.getElementById('tweetModal'));
+                modal.show();
+            }
+        });
+    </script>
+
+    <!-- Modal -->
+    <div class="modal fade" id="tweetModal" tabindex="-1" aria-labelledby="tweetModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tweetModalLabel">Tweet Confirmation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Your tweet has been posted successfully!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
